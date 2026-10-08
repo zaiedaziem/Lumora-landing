@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lumora — Independent Design & Engineering Studio</title>
+  <meta name="description" content="Lumora is an independent studio crafting brands, products, and the systems that connect them — bold ideas, shipped with quiet precision." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/hero/after.jpg" fetchpriority="high">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Icon sprite: every icon is 1em and takes currentColor -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-logo" viewBox="0 0 48 48"><path fill="currentColor" d="M24 2c2.2 13.8 7.9 19.6 22 22-14.1 2.4-19.8 8.2-22 22-2.2-13.8-7.9-19.6-22-22 14.1-2.4 19.8-8.2 22-22Z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-arrow-ur" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 17 17 7M8 7h9v9"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.9 5.88 6.49.94-4.7 4.58 1.11 6.46L12 17.9l-5.8 3.05 1.1-6.46-4.69-4.58 6.49-.94L12 2.5z"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9.25"/><path d="M12 2.75c2.6 2.3 4 5.8 4 9.25s-1.4 6.95-4 9.25c-2.6-2.3-4-5.8-4-9.25s1.4-6.95 4-9.25zM2.75 12h18.5"/></g></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 4l16 16M20 4 4 20"/></symbol>
+    <symbol id="i-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3.2" fill="currentColor"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></symbol>
+  </svg>
+
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- ============ Intro loader ============ -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__center" id="loader-center">
+      <div class="loader__brand"><svg class="ic loader__mark"><use href="#i-logo"/></svg>Lumora</div>
+      <p class="loader__tag">Bold ideas, shipped with quiet precision.</p>
+    </div>
+    <div class="loader__progress">
+      <div class="loader__track"><div class="loader__fill" id="loader-fill"></div></div>
+      <div class="loader__row"><span>Loading</span><span class="loader__count" id="loader-count">000</span></div>
+    </div>
+  </div>
+
+  <!-- ============ Header ============ -->
+  <header class="header" id="header">
+    <div class="shell header__in">
+      <button class="brand" type="button" data-scroll="home" aria-label="Lumora — back to top">
+        <span class="brand__in"><svg class="ic brand__mark"><use href="#i-logo"/></svg>Lumora</span>
+      </button>
+
+      <nav class="nav" aria-label="Primary">
+        <ul class="nav__list">
+          <li><button type="button" class="nav__link" data-nav="home" aria-current="page"><span>Home</span></button></li>
+          <li><button type="button" class="nav__link" data-nav="works"><span>Work</span></button></li>
+          <li><button type="button" class="nav__link" data-nav="services"><span>Services <i class="nav__caret">▾</i></span></button></li>
+          <li><button type="button" class="nav__link" data-nav="about"><span>Studio</span></button></li>
+          <li><button type="button" class="nav__link" data-nav="careers"><span>Careers</span></button></li>
+          <li><button type="button" class="nav__link" data-nav="contact"><span>Contact</span></button></li>
+        </ul>
+      </nav>
+
+      <div class="header__right">
+        <div class="clock">
+          <span class="clock__label">Local time</span>
+          <span class="clock__time" data-clock="time">9:41am</span>
+          <span class="clock__sep">•</span>
+          <span class="clock__date" data-clock="date">12 March, 2025</span>
+        </div>
+        <button type="button" class="menu-btn" id="menu-open" aria-haspopup="dialog">
+          <span class="menu-btn__in"><svg class="ic"><use href="#i-menu"/></svg><span class="menu-btn__word">Menu</span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ Hero ============ -->
+    <section class="hero" id="home">
+      <div class="liquid" id="liquid">
+        <img class="liquid__base" src="assets/hero/after.jpg" alt="" fetchpriority="high" decoding="async">
+        <canvas class="liquid__canvas" aria-hidden="true"></canvas>
+      </div>
+      <div class="hero__vignette" aria-hidden="true"></div>
+      <div class="hero__watermark" id="hero-watermark" aria-hidden="true">LUMORA</div>
+
+      <div class="shell hero__grid">
+        <div class="hero__left">
+          <span class="eyebrow" data-hero="eyebrow"><i class="eyebrow__dot"></i>Independent Studio</span>
+          <h1 class="hero__title" id="hero-title" data-lines="Bold ideas,|shipped with|quiet precision" data-manual>Bold ideas, shipped with quiet precision</h1>
+          <div class="rating" data-hero="rating">
+            <span class="rating__stars" aria-label="Rated 5 out of 5">
+              <svg class="ic"><use href="#i-star"/></svg><svg class="ic"><use href="#i-star"/></svg><svg class="ic"><use href="#i-star"/></svg><svg class="ic"><use href="#i-star"/></svg><svg class="ic"><use href="#i-star"/></svg>
+            </span>
+            <span class="rating__text">200+ brands shipped</span>
+          </div>
+          <div class="hero__ctas" data-hero="ctas">
+            <button type="button" class="pill pill--dark" data-arrow="right" data-open-request>Let's Talk</button>
+            <button type="button" class="pill pill--outline" data-scroll="works">View Work</button>
+          </div>
+        </div>
+
+        <div class="hero__right">
+          <div class="hcard" data-hero="card">
+            <div class="hcard__row" id="hcard" role="button" tabindex="0" aria-label="Next highlight">
+              <div class="hcard__tile"><svg class="ic"><use href="#i-logo"/></svg></div>
+              <div class="hcard__panel">
+                <div class="hcard__slot" id="hcard-slot" aria-live="polite"></div>
+                <div class="hcard__foot">
+                  <div class="hcard__dots" id="hcard-dots"></div>
+                  <div class="hcard__ctrls">
+                    <button type="button" class="hcard__btn" id="hcard-prev" aria-label="Previous highlight"><svg class="ic flip"><use href="#i-arrow"/></svg></button>
+                    <button type="button" class="hcard__btn" id="hcard-next" aria-label="Next highlight"><svg class="ic"><use href="#i-arrow"/></svg></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="partners" data-hero="partners">
+            <p class="partners__label">Trusted by</p>
+            <ul class="partners__grid">
+              <li><span class="partner"><svg class="ic"><use href="#i-dot"/></svg>Kaido</span></li>
+              <li><span class="partner"><svg class="ic"><use href="#i-dot"/></svg>Northpeak</span></li>
+              <li><span class="partner"><svg class="ic"><use href="#i-dot"/></svg>Vellum</span></li>
+              <li><span class="partner"><svg class="ic"><use href="#i-dot"/></svg>Orbit</span></li>
+              <li><span class="partner"><svg class="ic"><use href="#i-dot"/></svg>Brightline</span></li>
+              <li><span class="partner"><svg class="ic"><use href="#i-dot"/></svg>Cobalt</span></li>
+              <li><span class="partner"><svg class="ic"><use href="#i-dot"/></svg>Mesa</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="shell hero__status" data-hero="status">
+        <span>Working since 2014</span>
+        <span class="hero__status-mid">Remote-first, worldwide</span>
+        <span class="hero__scroll">Scroll to explore <span aria-hidden="true">↓</span></span>
+      </div>
+    </section>
+
+    <!-- ============ About ============ -->
+    <section class="about" id="about">
+      <div class="shell about__grid">
+        <div class="about__globe">
+          <svg class="ic about__bg-globe" aria-hidden="true"><use href="#i-globe"/></svg>
+          <span class="eyebrow about__eyebrow"><i class="eyebrow__dot"></i>The Studio</span>
+          <div class="about__note" data-reveal="y:12">
+            <svg class="ic about__note-globe"><use href="#i-globe"/></svg>
+            <span>A distributed team building across every time zone.</span>
+          </div>
+        </div>
+
+        <div class="about__statement">
+          <h2 class="about__title" id="about-title">We partner with ambitious teams to ship <span class="muted">digital products, brand systems, and the strategy that holds them together.</span></h2>
+          <div class="about__foot" data-reveal="y:12" data-delay="200">
+            <div>
+              <p class="about__find">Find us online</p>
+              <div class="socials">
+                <a href="#" class="social social--accent" aria-label="X / Twitter"><span class="social__in"><svg class="ic"><use href="#i-x"/></svg></span></a>
+                <a href="#" class="social" aria-label="Behance"><span class="social__in"><svg class="ic"><use href="#i-dot"/></svg></span></a>
+                <a href="#" class="social" aria-label="Dribbble"><span class="social__in"><svg class="ic"><use href="#i-dot"/></svg></span></a>
+              </div>
+            </div>
+            <a href="#about" class="pill pill--outline" data-arrow="right" data-scroll="about">About Us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ We Build → Better ============ -->
+    <section class="band" aria-label="We build better">
+      <ul class="shell band__list">
+        <li data-reveal="y:28" data-config="200,22" data-delay="0"><span class="band__tile band__tile--light">We</span></li>
+        <li data-reveal="y:28" data-config="200,22" data-delay="120"><span class="band__tile band__tile--accent">Build</span></li>
+        <li data-reveal="y:28" data-config="200,22" data-delay="240"><span class="band__tile band__tile--dark"><svg class="ic band__arrow" aria-label="leads to"><use href="#i-arrow"/></svg></span></li>
+        <li data-reveal="y:28" data-config="200,22" data-delay="360"><span class="band__tile band__tile--ghost">Better</span></li>
+      </ul>
+    </section>
+
+    <!-- ============ Portfolio ============ -->
+    <section class="works" id="works">
+      <div class="shell works__in">
+        <div class="center" data-reveal="y:10"><span class="eyebrow eyebrow--boxed"><i class="eyebrow__dot"></i>Portfolio</span></div>
+        <h2 class="works__title" data-lines="Selected Work" data-base-delay="120" data-duration="900">Selected Work</h2>
+        <ul class="works__grid" id="works-grid"><!-- js/sections.js --></ul>
+      </div>
+    </section>
+
+    <!-- ============ Services ============ -->
+    <section class="services" id="services">
+      <div class="shell services__in">
+        <div data-reveal="y:10"><span class="eyebrow"><i class="eyebrow__dot"></i>Services</span></div>
+        <h2 class="services__title" data-lines="What we do best" data-base-delay="120" data-duration="900">What we do best</h2>
+        <ul class="services__list" id="services-list"><!-- js/sections.js --></ul>
+      </div>
+    </section>
+
+    <!-- ============ Stats ============ -->
+    <section class="stats">
+      <div class="shell stats__in">
+        <div class="stats__panel" id="stats-panel">
+          <span class="eyebrow eyebrow--light"><i class="eyebrow__dot"></i>By the numbers</span>
+          <h2 class="stats__title" data-lines="auto" data-base-delay="120" data-duration="900">Proof in the work, not the words.</h2>
+          <ul class="stats__grid" id="stats-grid"><!-- js/sections.js --></ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="footer">
+    <div class="shell footer__in">
+      <div class="footer__cta">
+        <h2 class="footer__title" data-lines="auto" data-stagger="100" data-duration="900">Have a project in mind? Let's get to work.</h2>
+        <button type="button" class="pill pill--light" data-arrow="up-right" data-open-request>Start a project</button>
+      </div>
+
+      <div class="footer__cols">
+        <div>
+          <div class="footer__brand"><svg class="ic"><use href="#i-logo"/></svg>Lumora</div>
+          <p class="footer__tag">An independent studio crafting brands, products, and the systems that connect them.</p>
+        </div>
+        <div>
+          <p class="footer__col-title">Company</p>
+          <ul class="footer__links">
+            <li><a class="alink" href="#about"><span>About</span></a></li>
+            <li><a class="alink" href="#careers"><span>Careers</span></a></li>
+            <li><a class="alink" href="#partners"><span>Partners</span></a></li>
+            <li><a class="alink" href="#contact"><span>Contact</span></a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-title">Services</p>
+          <ul class="footer__links">
+            <li><a class="alink" href="#development"><span>Development</span></a></li>
+            <li><a class="alink" href="#design"><span>Design</span></a></li>
+            <li><a class="alink" href="#qa"><span>Quality Assurance</span></a></li>
+            <li><a class="alink" href="#consulting"><span>Consulting</span></a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-title">Social</p>
+          <ul class="footer__links">
+            <li><a class="alink" href="#"><span>X / Twitter</span></a></li>
+            <li><a class="alink" href="#"><span>Behance</span></a></li>
+            <li><a class="alink" href="#"><span>Dribbble</span></a></li>
+            <li><a class="alink" href="#"><span>LinkedIn</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__legal">
+        <span>© 2025 Lumora Studio. All rights reserved.</span>
+        <div class="footer__legal-links">
+          <a class="alink alink--legal" href="#privacy"><span>Privacy</span></a>
+          <a class="alink alink--legal" href="#terms"><span>Terms</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__watermark" aria-hidden="true">LUMORA</div>
+  </footer>
+
+  <!-- ============ Menu overlay ============ -->
+  <div class="navmenu" id="navmenu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+    <div class="shell navmenu__top">
+      <div class="navmenu__brand"><svg class="ic"><use href="#i-logo"/></svg>Lumora</div>
+      <button type="button" class="navmenu__close" id="menu-close"><svg class="ic"><use href="#i-x"/></svg>Close</button>
+    </div>
+    <nav class="shell navmenu__nav" aria-label="Menu">
+      <ul class="navmenu__list">
+        <li><button type="button" class="navmenu__item" data-nav="home"><span class="navmenu__idx">01</span><span class="navmenu__label">Home</span></button></li>
+        <li><button type="button" class="navmenu__item" data-nav="works"><span class="navmenu__idx">02</span><span class="navmenu__label">Work</span></button></li>
+        <li><button type="button" class="navmenu__item" data-nav="services"><span class="navmenu__idx">03</span><span class="navmenu__label">Services</span></button></li>
+        <li><button type="button" class="navmenu__item" data-nav="about"><span class="navmenu__idx">04</span><span class="navmenu__label">Studio</span></button></li>
+        <li><button type="button" class="navmenu__item" data-nav="careers"><span class="navmenu__idx">05</span><span class="navmenu__label">Careers</span></button></li>
+        <li><button type="button" class="navmenu__item" data-nav="contact"><span class="navmenu__idx">06</span><span class="navmenu__label">Contact</span></button></li>
+      </ul>
+    </nav>
+    <div class="shell navmenu__bottom">
+      <span>Local time — <span data-clock="time">9:41am</span></span>
+      <button type="button" class="navmenu__start" data-nav="contact">Start a project →</button>
+    </div>
+  </div>
+
+  <!-- ============ Request modal ============ -->
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div class="modal__panel" id="modal-panel">
+      <button type="button" class="modal__close" id="modal-close" aria-label="Close"><svg class="ic"><use href="#i-x"/></svg></button>
+
+      <div class="modal__form-view" id="modal-form-view">
+        <div class="modal__head">
+          <span class="modal__kicker"><i class="modal__dot"></i>Start a project</span>
+          <h2 class="modal__title" id="modal-title">Tell us what you're building.</h2>
+        </div>
+        <form class="modal__form" id="modal-form">
+          <label class="field"><span class="field__cap">Name</span><input type="text" name="name" required placeholder="Your name" autocomplete="name"></label>
+          <label class="field"><span class="field__cap">Email</span><input type="email" name="email" required placeholder="you@company.com" autocomplete="email"></label>
+          <label class="field"><span class="field__cap">Project</span><textarea name="project" rows="4" required placeholder="A few words about your project, timeline, and budget."></textarea></label>
+          <div class="modal__foot">
+            <span class="modal__note">We reply within one business day.</span>
+            <button type="submit" class="pill pill--dark" data-arrow="up-right" id="modal-submit">Send request</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="modal__success" id="modal-success" hidden>
+        <div class="modal__badge"><svg class="ic"><use href="#i-logo"/></svg></div>
+        <h2 class="modal__success-title">Request received</h2>
+        <p class="modal__success-text">Thanks for reaching out — we'll get back to you within one business day.</p>
+        <button type="button" class="pill pill--dark" id="modal-done">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="importmap">
+  { "imports": { "lenis": "https://unpkg.com/lenis@1.3.23/dist/lenis.mjs" } }
+  </script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
